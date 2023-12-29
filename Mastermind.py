@@ -459,7 +459,10 @@ while run:
                         if event.pos[1] < 670 and event.pos[0]< 780 :
                             Game_State = Start_Screen
             elif event.type == pygame.KEYDOWN:
-                username += pygame.key.name(event.key)
+                if pygame.key.name(event.key) == 'space':
+                    username += ' '
+                else:
+                    username += pygame.key.name(event.key)
                 
         
     elif Game_State == Lose_screen:
