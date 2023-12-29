@@ -114,6 +114,7 @@ Game_State = Start_Screen
 Num_Guesses_Allowed = 12 
 username = ''
 resetusername = True
+uppercase = False
 #loading images
 imp = pygame.image.load("C:\Mastermindproject\\download.jpg").convert()
 pygame.display.flip()
@@ -459,8 +460,15 @@ while run:
                         if event.pos[1] < 670 and event.pos[0]< 780 :
                             Game_State = Start_Screen
             elif event.type == pygame.KEYDOWN:
-                if pygame.key.name(event.key) == 'space':
+                if uppercase :
+                    temp = pygame.key.name(event.key)
+                    temp2 = temp.upper()
+                    username += temp2
+                    uppercase = False 
+                elif pygame.key.name(event.key) == 'space':
                     username += ' '
+                elif pygame.key.name(event.key) == 'left shift':
+                    uppercase = True
                 else:
                     username += pygame.key.name(event.key)
                 
